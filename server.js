@@ -11,7 +11,9 @@ db.once("open", () => console.log("Connected to database"))
 
 app.use(express.json())
 const drinkRouter = require("./routes/drink")
+const nightRouter = require("./routes/night")
 app.use("/drink", drinkRouter)
+app.use("/night", nightRouter)
 
 
 

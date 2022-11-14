@@ -2,7 +2,38 @@ GET http://localhost:3000/drink
 
 ###
 
-GET http://localhost:3000/drink/15
+GET http://localhost:3000/night
+
+###
+
+DELETE http://localhost:3000/drink/63721f941451d2584a895860
+
+###
+
+DELETE http://localhost:3000/night/637235f3b0125bbdd0739086
+
+###
+
+POST http://localhost:3000/night
+Content-type: application/json
+
+{
+}
+
+###
+
+GET http://localhost:3000/night/
 ###
 
 POST http://localhost:3000/drink
+Content-type: application/json
+
+{
+    "time": "03:00",
+    "beverage": "beer",
+    "volume": "0.5",
+    "unit": "L",
+    "percentage": "%",
+    "color": "#444444",
+    "nightId": "637242df9891e0aa4464c84b"
+}

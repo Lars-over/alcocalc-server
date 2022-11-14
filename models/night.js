@@ -1,11 +1,14 @@
 const mongoose = require("mongoose")
 
-const nightSchema = new mongoose.Schema({
+const NightSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now(),
         required: true
-    },
+    }
+
+    
+
 })
 
-module.exports = mongoose.model("Drink", drinkSchema)
+module.exports = mongoose.model("Night", NightSchema)

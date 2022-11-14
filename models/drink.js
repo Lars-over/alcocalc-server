@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
+const Drink = require("./Drink")
 
-const drinkSchema = new mongoose.Schema({
+const DrinkSchema = new mongoose.Schema({
     time: {
         type: String,
         default: Date.now().toString(),
@@ -31,7 +32,10 @@ const drinkSchema = new mongoose.Schema({
         default: "#e8aa32",
         required: true
 
-    }
+    },
+    nightId: {
+        type: String,
+        required: true
+    }   
 })
-
-module.exports = mongoose.model("Drink", drinkSchema)
+module.exports = mongoose.model("Drink", DrinkSchema)

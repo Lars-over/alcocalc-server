@@ -1,35 +1,53 @@
 const { response } = require("express")
 const express = require("express")
 const router = express.Router()
-const Drink = require("../models/drink")
+const Drink = require("../models/Drink")
 
-//get all drinks
-router.get("/", async(req, res) => {
-    try {
+//Get all drinks
+router.get("/", async (req, res) => {
+    try{
         const drinks = await Drink.find()
         res.json(drinks)
     } catch (err){
         res.status(500).json({message: err.message})
     }
-})
-
-//get drinks for specific day
-router.get("/:id", (req, res) => {
-    res.send(req.params.id)
-})
-
-//create day
-router.post("/", (req, res) => {
 
 })
 
-//add drink
-router.patch("/", (req, res) => {
+//create drink
+router.post("/", async (req, res) => {
+    const drink = new Drink({
+        time: req.body.name,
+        beverage: req.body.beverage,
+        volume: req.body.volume,
+        unit: req.body.unit,
+        percentage: req.body.percentage,
+        color: req.body.color,
+        nightId: req.body.nightId
+    })
+
+    try{
+        const newDrink = await drink.save()
+        res.status(201).json(newDrink)
+    } catch (err){
+        res.status(400).json({message : err.message})
+    }
 
 })
 
-//delete day
-router.delete("/:id", (req, res) => {
-
+//delete drink
+router.delete("/:id", async (rec, res) => {
+    thisDrink = await Drink.findById(rec.params.id)
+    try {
+        await thisDrink.remove()
+        res.status(202).json(thisDrink)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
+    
 })
+
+
+
+
 module.exports = router
