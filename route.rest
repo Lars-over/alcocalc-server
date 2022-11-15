@@ -2,7 +2,11 @@ GET http://localhost:3000/drink
 
 ###
 
-GET http://localhost:3000/night
+GET http://localhost:3000/day
+
+###
+
+GET http://localhost:3000/day/2022/11/15
 
 ###
 
@@ -10,11 +14,11 @@ DELETE http://localhost:3000/drink/63721f941451d2584a895860
 
 ###
 
-DELETE http://localhost:3000/night/637235f3b0125bbdd0739086
+DELETE http://localhost:3000/day/6373a610a315d9728bb0f235
 
 ###
 
-POST http://localhost:3000/night
+POST http://localhost:3000/day
 Content-type: application/json
 
 {
@@ -22,7 +26,7 @@ Content-type: application/json
 
 ###
 
-GET http://localhost:3000/night/
+GET http://localhost:3000/day/
 ###
 
 POST http://localhost:3000/drink

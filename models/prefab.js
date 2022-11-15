@@ -25,4 +25,4 @@ const prefabSchema = new mongoose.Schema({
     }
 })
 
-module.exports = mongoose.model("Prefab", drinkSchema)
+module.exports = mongoose.model("Prefab", prefabSchema)

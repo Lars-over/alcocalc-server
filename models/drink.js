@@ -33,9 +33,5 @@ const DrinkSchema = new mongoose.Schema({
         required: true
 
     },
-    nightId: {
-        type: String,
-        required: true
-    }   
 })
 module.exports = mongoose.model("Drink", DrinkSchema)

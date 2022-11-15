@@ -14,6 +14,8 @@ router.get("/", async (req, res) => {
 
 })
 
+
+
 //create drink
 router.post("/", async (req, res) => {
     const drink = new Drink({
@@ -23,7 +25,6 @@ router.post("/", async (req, res) => {
         unit: req.body.unit,
         percentage: req.body.percentage,
         color: req.body.color,
-        nightId: req.body.nightId
     })
 
     try{
