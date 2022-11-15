@@ -17,28 +17,28 @@ router.get("/", async (req, res) => {
 
 })
 
+//Get specific day
+router.get("/:date", getDay, async (req, res) => {
+    res.json(res.day)
+})
+
 //Get drinks from specific day
-router.get("/:year/:month/:dayOfMonth", async (req, res) => {
+router.get("/:date/:drinks", getDay, async (req, res) => {
+    const selectedDay = res.day
     try {
-        const selectedDay = await Day.findOne({month: req.params.month, 
-                                                dayOfMonth: req.params.dayOfMonth,
-                                                year: req.params.year})
         res.json(selectedDay.drinks)
     } catch (err) {
         res.status(500).json({message: err.message})
         console.log("ah shit")
     }
-
 })
 
 
 //Create day
 router.post("/", async (req, res) => {
     const day = new Day({
-        dayOfMonth: req.body.dayOfMonth,
         drinks: req.body.drinks,
-        year: req.body.year,
-        month: req.body.month,
+        date: req.body.date
     })
     try {
         const newDay = await day.save()
@@ -50,22 +50,8 @@ router.post("/", async (req, res) => {
 
 })
 
-//Create day from date
-router.post("/:year/:month/:dayOfMonth", async (req, res) => {
-    const day = new Day({
-        dayOfMonth: parseInt(req.params.dayOfMonth),
-        drinks: req.body.drinks,
-        year: parseInt(req.params.year),
-        month: parseInt(req.params.year)})
-    try {
-        const newDay = await day.save()
-        res.status(201).json(newDay)
-        
-    } catch (err){
-        res.status(400).json({message: err.message})
-    }
-})
 
+/*
 //delete day
 router.delete("/:id", async (req, res) => {
     thisDay = await Day.findById(req.params.id)
@@ -77,7 +63,41 @@ router.delete("/:id", async (req, res) => {
     }
     
 })
+*/
+//Add drink to Day from date
+router.patch("/:date/:addOrRemove", getDay, async (req, res) => {
+    const selectedDay = res.day
+    if (req.body !=  null){
+        console.log("aah")
+        if (req.params.addOrRemove == "add"){
+            selectedDay.drinks.push(req.body)
+        }
+        if (req.params.addOrRemove == "remove"){
+            selectedDay.drinks = selectedDay.drinks.filter(function (el) {return el.id != req.body.id})
+        }
 
+    }
+    try{
+        const updatedDay = await selectedDay.save()
+        res.json(updatedDay)
+    } catch (err) {
+        res.status(400).json({message : err.message})
+    }
+ 
+})
 
+async function getDay(req, res, next){
+    let day
+    try {
+        day = await Day.findOne({date: req.params.date})
+        if (day == null){
+            return res.status(404).json({message: "cannot find day"})
+        }
+    } catch (err){
+        return res.status(500).json({message: err.message})
+    }
+    res.day = day
+    next()
+}
 
 module.exports = router

@@ -4,7 +4,7 @@ const Drink = require("./Drink")
 const DrinkSchema = new mongoose.Schema({
     time: {
         type: String,
-        default: Date.now().toString(),
+        default: new Date().getHours.toString() + ":" +  new Date().getMinutes.toString(),
         required: true
     },
     beverage: {
