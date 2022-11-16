@@ -1,9 +1,7 @@
 const { response } = require("express")
 const express = require("express")
-const day = require("../models/Day")
 const router = express.Router()
 const Day = require("../models/Day")
-const Drink = require("../models/Drink")
 
 
 //Get all days
@@ -56,6 +54,7 @@ router.delete("/:date", getDay, async (req, res) => {
     const selectedDay = res.day
     try {
         await selectedDay.remove()
+        console.log(selectedDay)
         res.status(202).json(selectedDay)
     } catch (err){
         res.status(500).json({message: err.message})

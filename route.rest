@@ -20,7 +20,7 @@ DELETE http://localhost:3000/drink/63721f941451d2584a895860
 
 ###
 
-DELETE http://localhost:3000/day/20221115
+DELETE http://localhost:3000/day/20220505
 
 ###
 
@@ -90,3 +90,63 @@ Content-type: application/json
         "id": "6373fdb435b3a342c0fc22cc"
 
 }
+
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+{
+    "beverage": "Wine",
+    "volume": "0.5",
+    "unit": "L",
+    "percentage": "%",
+    "color": "#444444"
+}
+       
+###
+
+###
+
+GET http://localhost:3000/prefab/
+
+######
+
+DELETE http://localhost:3000/prefab/6374e77a8164b9532aae3
+
+###
+
+DELETE http://localhost:3000/prefab/6374e897a2fea22601fe5c7f
+
+###
+
+
+
+###
+
+POST http://localhost:3000/day
+Content-type: application/json
+
+{
+    "date": "20220505",
+    "drinks": [{
+        "time": "07:00",
+        "beverage": "Cider",
+        "volume": "0.5",
+        "unit": "L",
+        "percentage": "%",
+        "color": "#444444"
+        },
+        {
+        "time": "09:00",
+        "beverage": "Beer",
+        "volume": "0.5",
+        "unit": "L",
+        "percentage": "%",
+        "color": "#444444"
+        }
+        ]
+
+}
+
+###
