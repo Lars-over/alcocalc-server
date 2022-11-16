@@ -6,15 +6,21 @@ GET http://localhost:3000/day/20220505/drinks
 
 ###
 
-GET http://localhost:3000/day/2022/11/15
+GET http://localhost:3000/day/
 
 ###
 
 DELETE http://localhost:3000/drink/63721f941451d2584a895860
 
+
+
+
+
+
+
 ###
 
-DELETE http://localhost:3000/day/6373d29a0ffc22ad6381b4de
+DELETE http://localhost:3000/day/20221115
 
 ###
 

@@ -29,7 +29,6 @@ router.get("/:date/:drinks", getDay, async (req, res) => {
         res.json(selectedDay.drinks)
     } catch (err) {
         res.status(500).json({message: err.message})
-        console.log("ah shit")
     }
 })
 
@@ -51,24 +50,22 @@ router.post("/", async (req, res) => {
 })
 
 
-/*
+
 //delete day
-router.delete("/:id", async (req, res) => {
-    thisDay = await Day.findById(req.params.id)
+router.delete("/:date", getDay, async (req, res) => {
+    const selectedDay = res.day
     try {
-        await thisDay.remove()
-        res.status(202).json(thisDay)
+        await selectedDay.remove()
+        res.status(202).json(selectedDay)
     } catch (err){
         res.status(500).json({message: err.message})
     }
-    
 })
-*/
-//Add drink to Day from date
+
+//Add or remove drink from Day given date
 router.patch("/:date/:addOrRemove", getDay, async (req, res) => {
     const selectedDay = res.day
     if (req.body !=  null){
-        console.log("aah")
         if (req.params.addOrRemove == "add"){
             selectedDay.drinks.push(req.body)
         }
