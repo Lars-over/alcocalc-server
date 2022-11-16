@@ -10,9 +10,9 @@ db.on("error", (error) => console.error(error))
 db.once("open", () => console.log("Connected to database"))
 
 app.use(express.json())
-const drinkRouter = require("./routes/drink")
+const prefabRouter = require("./routes/prefab")
 const dayRouter = require("./routes/day")
-app.use("/drink", drinkRouter)
+app.use("/prefab", prefabRouter)
 app.use("/day", dayRouter)
 
 
