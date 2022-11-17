@@ -15,6 +15,21 @@ router.get("/", async (req, res) => {
 
 })
 
+//Get all dates
+router.get("/dates/all", async (req, res) => {
+    try{
+        const days = await Day.find()
+        arr = []
+        days.forEach(element => {
+            arr.push(element.date)
+        });
+        res.json(arr)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
+
+})
+
 //Get specific day
 router.get("/:date", getDay, async (req, res) => {
     res.json(res.day)

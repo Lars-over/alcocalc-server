@@ -34,8 +34,21 @@ router.post("/", async (req, res) => {
 
 })
 
-//delete day
+//delete prefab
 router.delete("/:id", getPrefab, async (req, res) => {
+    console.log("----- delete with id")
+    const selectedPrefab = res.prefab
+    try {
+        await selectedPrefab.remove()
+        console.log(selectedPrefab)
+        res.status(202).json(selectedPrefab)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
+})
+
+//delete prefab
+router.delete("/:beverage/:volume/:unit/:percentage/:color", getPrefab, async (req, res) => {
     const selectedPrefab = res.prefab
     try {
         await selectedPrefab.remove()
@@ -49,7 +62,7 @@ router.delete("/:id", getPrefab, async (req, res) => {
 async function getPrefab(req, res, next){
     let prefab
     try {
-        prefab = await Prefab.findOne({id: req.params.id})
+        prefab = await Prefab.findById(req.params.id)
         if (prefab == null){
             return res.status(404).json({message: "cannot find prefab"})
         }

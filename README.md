@@ -2,13 +2,26 @@
 
 
 
-## Getting started
+## API Reference
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Alcocalc-Server is organized around REST.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Objects
 
-## Add your files
+## Day
+
+A Day is a container object that holds the date and a list of drinks associated with that day.
+
+The Day-object:
+
+**Attributes:**
+- id: (String)
+- date: (String)
+- drinks: (array) 
+
+**Create a Day-object**
+
+
 
 - [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
 - [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:

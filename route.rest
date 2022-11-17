@@ -6,7 +6,7 @@ GET http://localhost:3000/day/20221117
 
 ###
 
-GET http://localhost:3000/day/
+GET http://localhost:3000/day/dates/all
 
 ###
 
@@ -20,7 +20,7 @@ DELETE http://localhost:3000/drink/63721f941451d2584a895860
 
 ###
 
-DELETE http://localhost:3000/day/20220505
+DELETE http://localhost:3000/day/20220307
 
 ###
 
@@ -51,7 +51,7 @@ Content-type: application/json
 
 ###
 
-POST http://localhost:3000/day/20221117
+POST http://localhost:3000/day/20220307
 Content-type: application/json
 
 {
@@ -76,19 +76,14 @@ Content-type: application/json
 }
 
 ###
-PATCH http://localhost:3000/day/20221117/add
+PATCH http://localhost:3000/day/20221117/remove
 Accept: application/json
 Content-type: application/json
 
 {
 
-        "time": "18:00",
-        "beverage": "shot",
-        "volume": "0.5",
-        "unit": "L",
-        "percentage": "%",
-        "color": "#444444",
-        "id": "6373fdb435b3a342c0f"
+        
+        "id": "637642804c8f6a2b2e577a1d"
 
 }
 
@@ -114,7 +109,7 @@ GET http://localhost:3000/prefab/
 
 ######
 
-DELETE http://localhost:3000/prefab/6374e77a8164b9532aae3
+DELETE http://localhost:3000/prefab/Beer/0.5/l/4.7/#E8AA32
 
 ###
 
@@ -190,7 +185,7 @@ Content-type: application/json
 POST http://localhost:3000/prefab
 Content-type: application/json
 
-    { "id": 5, "beverage": "Cider", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#127A6E" }
+    { "id": 5, "beverage": "Hard Cider", "volume": "0.5", "unit": "l", "percentage": "8.7", "color": "#127A6E" }
 
 ###
 
