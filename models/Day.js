@@ -10,12 +10,12 @@ const DaySchema = new mongoose.Schema({
         required: true
     },
     drinks: [{
-        time: {type: String, required: true},
-        beverage: {type: String, required: true},
-        volume: {type: String, required: true},
-        unit: {type: String, required: true},
-        percentage: {type: String, required: true},
-        color: {type: String, required: true},
+        time: {type: String},
+        beverage: {type: String},
+        volume: {type: String},
+        unit: {type: String},
+        percentage: {type: String},
+        color: {type: String},
     }]
 })
 

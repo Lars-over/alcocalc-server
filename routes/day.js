@@ -15,6 +15,21 @@ router.get("/", async (req, res) => {
 
 })
 
+//Get all dates
+router.get("/dates/all", async (req, res) => {
+    try{
+        const days = await Day.find()
+        arr = []
+        days.forEach(element => {
+            arr.push(element.date)
+        });
+        res.json(arr)
+    } catch (err){
+        res.status(500).json({message: err.message})
+    }
+
+})
+
 //Get specific day
 router.get("/:date", getDay, async (req, res) => {
     res.json(res.day)
@@ -47,6 +62,22 @@ router.post("/", async (req, res) => {
 
 })
 
+//Create day from date
+router.post("/:date", async (req, res) => {
+    const day = new Day({
+        drinks: req.body.drinks,
+        date: req.params.date
+    })
+    try {
+        const newDay = await day.save()
+        res.status(201).json(newDay)
+    } catch (err){
+        res.status(400).json({message: err.message})
+    }
+
+
+})
+
 
 
 //delete day
@@ -63,10 +94,18 @@ router.delete("/:date", getDay, async (req, res) => {
 
 //Add or remove drink from Day given date
 router.patch("/:date/:addOrRemove", getDay, async (req, res) => {
+    console.log("inside server")
     const selectedDay = res.day
     if (req.body !=  null){
         if (req.params.addOrRemove == "add"){
-            selectedDay.drinks.push(req.body)
+            selectedDay.drinks.push({
+                time: req.body.time,
+                beverage: req.body.beverage,
+                volume: req.body.volume,
+                unit: req.body.unit,
+                percentage: req.body.percentage,
+                color: req.body.color,
+            })
         }
         if (req.params.addOrRemove == "remove"){
             selectedDay.drinks = selectedDay.drinks.filter(function (el) {return el.id != req.body.id})
