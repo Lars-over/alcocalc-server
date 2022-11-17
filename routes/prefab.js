@@ -51,7 +51,7 @@ async function getPrefab(req, res, next){
     try {
         prefab = await Prefab.findOne({id: req.params.id})
         if (prefab == null){
-            return res.status(404).json({message: "cannot find day"})
+            return res.status(404).json({message: "cannot find prefab"})
         }
     } catch (err){
         return res.status(500).json({message: err.message})

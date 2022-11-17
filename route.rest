@@ -2,7 +2,7 @@ GET http://localhost:3000/drink
 
 ###
 
-GET http://localhost:3000/day/20220505/drinks
+GET http://localhost:3000/day/20221117
 
 ###
 
@@ -51,7 +51,7 @@ Content-type: application/json
 
 ###
 
-POST http://localhost:3000/day/20220305
+POST http://localhost:3000/day/20221117
 Content-type: application/json
 
 {
@@ -59,7 +59,7 @@ Content-type: application/json
 
 ###
 
-GET http://localhost:3000/day/
+GET http://localhost:3000/day
 ###
 
 POST http://localhost:3000/drink
@@ -76,24 +76,26 @@ Content-type: application/json
 }
 
 ###
-PATCH http://localhost:3000/day/20220505/remove
+PATCH http://localhost:3000/day/20221117/add
+Accept: application/json
 Content-type: application/json
 
 {
 
-        "time": "13:00",
-        "beverage": "Wine",
+        "time": "18:00",
+        "beverage": "shot",
         "volume": "0.5",
         "unit": "L",
         "percentage": "%",
         "color": "#444444",
-        "id": "6373fdb435b3a342c0fc22cc"
+        "id": "6373fdb435b3a342c0f"
 
 }
 
 ###
 
 POST http://localhost:3000/prefab
+Accept: application/json
 Content-type: application/json
 
 {
@@ -116,7 +118,7 @@ DELETE http://localhost:3000/prefab/6374e77a8164b9532aae3
 
 ###
 
-DELETE http://localhost:3000/prefab/6374e897a2fea22601fe5c7f
+DELETE http://localhost:3000/prefab/6375679e90481c84eb09dba0
 
 ###
 
@@ -148,5 +150,53 @@ Content-type: application/json
         ]
 
 }
+
+###
+    { "id": 1, "beverage": "Beer", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#E8AA32" },
+    { "id": 2, "beverage": "Beer", "volume": "0.3", "unit": "l", "percentage": "4.7", "color": "#ee0" },
+    { "id": 3, "beverage": "Wine", "volume": "2", "unit": "cl", "percentage": "11.5", "color": "#7a121f" },
+    { "id": 4, "beverage": "Shot", "volume": "45", "unit": "ml", "percentage": "40", "color": "#6635CE" },
+    { "id": 5, "beverage": "Cider", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#127A6E" },
+    { "id": 6, "beverage": "Vodka Redbull", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#DD72D9" }
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 1, "beverage": "Beer", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#E8AA32" }
+
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 2, "beverage": "Beer", "volume": "0.3", "unit": "l", "percentage": "4.7", "color": "#ee0" }
+
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 3, "beverage": "Wine", "volume": "2", "unit": "cl", "percentage": "11.5", "color": "#7a121f" }
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 4, "beverage": "Shot", "volume": "45", "unit": "ml", "percentage": "40", "color": "#6635CE" }
+
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 5, "beverage": "Cider", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#127A6E" }
+
+###
+
+POST http://localhost:3000/prefab
+Content-type: application/json
+
+    { "id": 6, "beverage": "Vodka Redbull", "volume": "0.5", "unit": "l", "percentage": "4.7", "color": "#DD72D9" }
 
 ###
