@@ -1,5 +1,10 @@
 # AlcoCalc-server
 
+## Installation
+
+To run the server you have to install MongoDB Shell [MongoDB Shell](https://www.mongodb.com/try/download/shell). Open the downloaded file and run the installer and the setup wizard.
+
+CMD: 
 
 
 ## API Reference
