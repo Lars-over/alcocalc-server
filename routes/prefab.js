@@ -53,7 +53,7 @@ router.delete("/:beverage/:volume/:unit/:percentage/:color", getPrefab, async (r
     try {
         await selectedPrefab.remove()
         console.log(selectedPrefab)
-        res.status(202).json(selectedPrefab)
+        res.status(204).json(selectedPrefab)
     } catch (err){
         res.status(500).json({message: err.message})
     }
