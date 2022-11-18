@@ -1,7 +1,7 @@
 const { response } = require("express")
 const express = require("express")
 const router = express.Router()
-const Prefab = require("../models/Prefab")
+const Prefab = require(".././models/prefab")
 
 
 //Get all Prefabs

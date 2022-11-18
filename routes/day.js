@@ -1,7 +1,7 @@
 const { response } = require("express")
 const express = require("express")
 const router = express.Router()
-const Day = require("../models/Day")
+const Day = require(".././models/Day")
 
 
 //Get all days
