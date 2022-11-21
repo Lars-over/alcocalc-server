@@ -10,14 +10,14 @@ db.on("error", (error) => console.error(error))
 db.once("open", () => console.log("Connected to database"))
 
 app.use(express.json())
-const prefabRouter = require("../routes/prefab")
-const dayRouter = require("../routes/day")
+const prefabRouter = require("./routes/prefab")
+const dayRouter = require("./routes/day")
 app.use("/prefab", prefabRouter)
 app.use("/day", dayRouter)
 
+const port = process.env.PORT || 3000;
 
-
-app.listen(3000, () => console.log("Server started"))
+app.listen(port, () => console.log("Server started"))
 
 
 const init = async () => {
