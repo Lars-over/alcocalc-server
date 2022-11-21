@@ -1,7 +1,7 @@
 const { response } = require("express")
 const express = require("express")
 const router = express.Router()
-const Day = require(".././models/Day")
+const Day = require(".././models/MockDay")
 
 
 //Get all days
@@ -86,7 +86,7 @@ router.delete("/:date", getDay, async (req, res) => {
     try {
         await selectedDay.remove()
         console.log(selectedDay)
-        res.status(204).json(selectedDay)
+        res.status(202).json(selectedDay)
     } catch (err){
         res.status(500).json({message: err.message})
     }
@@ -136,5 +136,3 @@ async function getDay(req, res, next){
 }
 
 module.exports = router
-
-
